@@ -95,6 +95,7 @@ if uploaded_file is not None:
                 st.subheader("Query Results")
                 st.dataframe(result)
             except Exception as e:
-                st.error(f"Query error: {e}")
+                #st.error(f"Query error: {e}")
+                st.error("Query error: Result not found")
 else:
     st.write("Please upload a CSV file to proceed.")
