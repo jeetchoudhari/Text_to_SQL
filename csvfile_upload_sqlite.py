@@ -76,12 +76,12 @@ if uploaded_file is not None:
         """
     ]
 
-    transcription = st.text_area("Input Question", value=st.session_state.transcription, height=100)
+    st.session_state.transcription = st.text_area("Input Question", value=st.session_state.transcription, height=100)
 
 
     if st.button("Click here to display results"):
         with st.spinner("Generating SQL query..."):
-            response = get_gemini_response(transcription, prompt)
+            response = get_gemini_response(st.session_state.transcription, prompt)
             st.success("SQL query generated!")
 
         sql_query = response.strip().split(';')[0].strip()
